@@ -5,32 +5,64 @@
  */
 package programacionconcurrente;
 
+import java.io.IOException;
+
 /**
  *
  * @author cristopher.ovaillos
  */
 public class ProgramacionConcurrente {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static double acceso_por_indice(double[] v, int j) throws RuntimeException {
-
-        try {
-            if ((0 <= j) && (j <= v.length)) {
-                return v[j];
-            } else {
-                throw new RuntimeException("El indice " + j + " no existe en el vector");
-            }
-        } catch (RuntimeException exc) {
-            throw exc;
-        }
-    }
-
 // Desde el siguiente cliente “main”:
     public static void main(String[] args) {
-        double[] v = new double[15];
-        acceso_por_indice(v, 16);
+  
+        
+        p(0,10);
+        
+        
+    }
+    
+    public static void p (int x, int y){
+           try{
+            q(x,y);
+        }catch(ArithmeticException a){
+                           System.out.println("Psadasdadasd");
+
+        }finally{
+               System.out.println("P");
+        }
+            
+        
+    }
+    
+      
+    public static void q (int x, int y){
+           try{
+            r(x,y);
+        }catch(ArrayIndexOutOfBoundsException e){
+            
+        }finally{
+                System.out.println("Q");
+              
+            
+        }
+            
+        
+    }
+    
+      
+    public static void r (int x, int y){
+        int a;   
+        try{
+            a=y/x;
+        }catch(ArrayIndexOutOfBoundsException e){
+             System.out.println("as1111111111111111111sd");
+        }finally{
+                 System.out.println("R")                  ;
+        }
+                             System.out.println("fin r")                  ;
+
+        
     }
 
 }
